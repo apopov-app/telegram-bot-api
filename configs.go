@@ -407,6 +407,7 @@ type PhotoConfig struct {
 	BaseFile
 	Thumb           RequestFileData
 	Caption         string
+	Spoiler         bool
 	ParseMode       string
 	CaptionEntities []MessageEntity
 }
@@ -416,7 +417,7 @@ func (config PhotoConfig) params() (Params, error) {
 	if err != nil {
 		return params, err
 	}
-
+	params.AddBool("has_media_spoiler", config.Spoiler)
 	params.AddNonEmpty("caption", config.Caption)
 	params.AddNonEmpty("parse_mode", config.ParseMode)
 	err = params.AddInterface("caption_entities", config.CaptionEntities)
