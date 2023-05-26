@@ -1,3 +1,3 @@
-module github.com/apopov-app/telegram-bot-api/v1
+module github.com/apopov-app/telegram-bot-api
 
 go 1.19
